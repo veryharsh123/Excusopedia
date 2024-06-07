@@ -29,6 +29,35 @@ const ExcuseGrid = () => {
           selectedExcuses = excusesData.Thunderstorm;
           break;
         case 'Drizzle':
+          selectedExcuses = excusesData.Drizzle;
+          break;
+        case 'Mist':
+          selectedExcuses = excusesData.Mist;
+          break;
+        case 'Haze':
+          selectedExcuses = excusesData.Haze;
+          break;
+        case 'Fog':
+          selectedExcuses = excusesData.Fog;
+          break;
+        case 'Smoke':
+          selectedExcuses = excusesData.Smoke;
+          break;
+        case 'Dust':
+          selectedExcuses = excusesData.Dust;
+          break;
+        case 'Sand':
+          selectedExcuses = excusesData.Sand;
+          break;
+        case 'Ash':
+          selectedExcuses = excusesData.Ash;
+          break;
+        case 'Squall':
+          selectedExcuses = excusesData.Squall;
+          break;
+        case 'Tornado':
+          selectedExcuses = excusesData.Tornado;
+          break;
         case 'Rain':
           selectedExcuses = excusesData.Rain;
           break;
