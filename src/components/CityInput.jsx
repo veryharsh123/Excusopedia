@@ -9,8 +9,8 @@ const CityInput = ({ onCitySubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (city.trim()) {  // Ensure the city input is not just whitespace
-      onCitySubmit(city.trim());  // Call the parent function with the trimmed city name
+    if (city.trim()) { 
+      onCitySubmit(city.trim()); 
     }
   };
 

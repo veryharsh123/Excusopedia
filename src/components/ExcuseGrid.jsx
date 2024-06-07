@@ -5,7 +5,7 @@ import ExcuseCard from './ExcuseCard';
 import axios from 'axios';
 import Spinner from './spinner';
 import CityInput from './CityInput';
-import excusesData from '../data/excusesData'; // Import the excusesData
+import excusesData from '../data/excusesData';
 import { toast } from 'react-toastify';
 const ExcuseGrid = () => {
   const [excuse, setExcuse] = useState(null);
@@ -16,16 +16,13 @@ const ExcuseGrid = () => {
   const handleCitySubmit = async (city) => {
     try {
       const geoResponse = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`);
-      // Extract latitude and longitude from the response data
       const { latitude, longitude } = geoResponse.data.results[0];
       console.log(latitude, longitude);
       console.log(process.env.REACT_APP_OPENWEATHER_API_KEY);
-      // Fetch daily weather forecast using OpenWeatherMap API
+      // Fetch daily weather forecast using OpenWeatherMapAPI
       const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`);
       console.log(weatherResponse.data.list[0].weather[0].main);
       const weatherForecast = weatherResponse.data.list[0].weather[0].main;
-
-      // Map the weather condition to the corresponding excuses from excusesData
       let selectedExcuses = [];
       switch (weatherForecast) {
         case 'Thunderstorm':
@@ -47,12 +44,8 @@ const ExcuseGrid = () => {
         default:
           selectedExcuses = [];
       }
-
-      // Select a random excuse from the selected set of excuses
       const randomIndex = Math.floor(Math.random() * selectedExcuses.length);
       const randomExcuse = selectedExcuses[randomIndex];
-
-      // Update state with the selected excuse
       setExcuse(randomExcuse);
     } catch (error) {
       toast.error('Error fetching data. Please try again later.', error);
