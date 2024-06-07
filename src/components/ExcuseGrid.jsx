@@ -146,7 +146,7 @@ const ExcuseGrid = () => {
         <div className="max-w-6xl ml-12 my-4 flex items-center before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
         <p className="text-center mx-2">or</p>
         </div>
-        <p>GET A CUSTOM EXCUSE BASED ON YOUR CITIES WEATHER</p>
+        <p>GET A CUSTOM EXCUSE BASED ON YOUR CITY'S WEATHER</p>
       <CityInput onCitySubmit={handleCitySubmit} />
       {excuse && (
         <div>
